@@ -3,8 +3,13 @@
 generate:
 	rails g model User username email description
 	rails g model Room name:string description:string is_private:boolean is_active:boolean has_bot:boolean
+	# types: user2llm, llm2user, func_call
+	rails g model Message user:references room:references type:string content:text internal_stuff:text
 
+clean:
+	rails tmp:clear
 dev:
+	rails assets:precompile
 	rails s -p 8081
 
 test-db:

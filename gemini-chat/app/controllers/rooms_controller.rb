@@ -11,4 +11,18 @@ class RoomsController < ApplicationController
     @users = User.all_except(@current_user)
     @room = Room.new
   end
+
+  def show
+    @current_user = current_user
+    @single_room = Room.find(params[:id])
+    @rooms = Room.public_rooms
+    @users = User.all_except(@current_user)
+    @messages = @single_room.messages
+    # lets initialize new stuff
+    @room = Room.new
+    @message = Message.new
+
+    render "index"
+  end
+
 end
