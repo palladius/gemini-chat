@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Room.create(name: 'music')
+Room.create(name: 'gemini') # model
+# why uppercase?!?
+User.create(username: 'Drake')
+User.create(username: 'Elon')
+# better
+User.create(username: 'ricc')
