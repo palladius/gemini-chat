@@ -10,6 +10,8 @@ GAC = ENV.fetch 'GOOGLE_APPLICATION_CREDENTIALS', nil
 GOOGLE_APPLICATION_CREDENTIALS  = ENV.fetch 'GOOGLE_APPLICATION_CREDENTIALS', nil
 EmbeddingEmoji = '🗿'
 
+RailsEnvCircle = Rails.env == "development" ? '🟡' : '🟢'
+
 AppUrlDev  = 'https://gemini-chat-dev-x42ijqglgq-ew.a.run.app/'
 AppUrlProd = 'https://gemini-chat-prod-x42ijqglgq-ew.a.run.app/'
 

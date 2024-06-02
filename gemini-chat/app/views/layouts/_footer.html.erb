@@ -22,12 +22,17 @@ Copy
   -->
   <div class="container">
     <footer class="py-3 my-4">
-      <p class="text-center text-muted"><b><%= APP_NAME %></b>, © 2024 Carlesso, Inc -
+      <p class="text-center text-muted">
+
+        <%= RailsEnvCircle %>
+        <b><%= APP_NAME %></b>,
+        v<b><%= APP_VERSION %></b>,
+        © 2024 Carlesso, Inc -
         <a href="https://github.com/palladius/gemini-chat" class="btn btn-primary">Code</a>
         <a href="<%= AppUrlDev %>" class="btn btn-warning">🏃🏻 Dev</a>
         <a href="<%= AppUrlProd %>" class="btn btn-danger">🏃🏻 Prod</a>
       </p>
     </footer>
 
-
+    APP_VERSION
   </div>
