@@ -27,5 +27,5 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#  url: <%= ENV['DATABASE_URL_PROD'] %>
-  url: <%= Rails.application.credentials.env.DATABASE_URL_PROD rescue 'Woops credential extraction error' %>
+  url: <%= ENV['DATABASE_URL_PROD'] %>
+#  url: <%= Rails.application.credentials.env.DATABASE_URL_PROD rescue 'Woops credential extraction error' %>
