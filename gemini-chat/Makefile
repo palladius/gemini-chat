@@ -13,6 +13,13 @@ dev:
 	rails assets:precompile
 	rails s -p 8081
 
+credentials-edit: credentials-edit-dev
+
+credentials-edit-dev:
+	rails credentials:edit
+credentials-edit-prod:
+	RAILS_ENV=production rails credentials:edit
+
 test-db:
 	echo Room.count | rails c
 	echo User.count | rails c
