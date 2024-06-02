@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.5.12 [ops] Try to move PG credentials from locally encrypted to ENV+SecretMgr.. damn.
 2024-06-02 0.5.11 Small Mac bugfix + Room gemini functionality BAD bugfix. Now it works again!
 2024-06-02 0.5.10 Moving PROD to PostgreS!!! Took me less than 5min in localhost - wow. God bless RAC! With ENV it would have taken me MUCH more (change CB, Secrets, build script, ..)
 2024-06-02 0.5.9 adding link to message in chat to troubleshoot stuff.
