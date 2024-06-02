@@ -16,4 +16,4 @@ To productionize I had to - on GCP:
 2. Connect Cloud Build to my github repo: https://console.cloud.google.com/cloud-build/triggers;region=global/edit/ba96c5f0-d059-47ef-88f2-5b392a8425f1?e=-13802955&project=palladius-genai
 3. Created AR: https://console.cloud.google.com/artifacts/docker/palladius-genai/europe-west1/gemini-chat?project=palladius-genai
 4.  Maybe also customized SvcAcct?
-5.
+
