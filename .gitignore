@@ -1,4 +1,5 @@
 .gcloudconfig.yaml
+.executed_ok.*
 .git-privatize
 dump.rdb
 .ondir.was.here.touch
