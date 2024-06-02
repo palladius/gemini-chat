@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.5.4 I have a feeling that this new auto-response doesnt work, and breaks JS automation.
 2024-06-02 0.5.3 Adding Gemini support, finally.
 2024-06-02 0.5.2 added version to footer, finally
 2024-06-02 0.5.1 fixed colors: blue green like Apple + gray for robot.
