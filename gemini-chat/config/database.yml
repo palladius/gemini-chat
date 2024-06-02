@@ -29,5 +29,3 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #  url: <%= ENV['DATABASE_URL_PROD'] %>
   url: <%= Rails.application.credentials.env.DATABASE_URL_PROD rescue 'Woops credential extraction error' %>
-  #url: 'postgresql://gemini-chat-prd:U8ob4.J1p5p_ot@34.65.100.166/gemini-chat-prod?pool=5'
-
