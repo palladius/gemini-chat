@@ -12,7 +12,8 @@ module ChatHelper
               link_to(message.user.username, message.user).html_safe
     # This ensures we stay a SafeBuffer class: https://stackoverflow.com/questions/65234856/html-safe-and-non-html-safe-concatenation
     prettified_message = markdown_to_html(message.content).html_safe
-    ''.html_safe + time_preamble + ' ' + user_preamble + ' ' + content_tag(:span, prettified_message)
+    link_to('🏧', "/rooms/#{message.room.id}/messages/#{message.id}") +
+      ''.html_safe + time_preamble + ' ' + user_preamble + ' ' + content_tag(:span, prettified_message)
   end
 
   # todo cache or construct in config initializer

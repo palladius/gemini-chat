@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.5.9 adding link to message in chat to troubleshoot stuff.
 2024-06-02 0.5.8 better chat again
 2024-06-02 0.5.7 adding redcarpet. Plkius fixing the config/init/ricc_70_llm bug.
 2024-06-02 0.5.6 fixing dockerfile maybe?

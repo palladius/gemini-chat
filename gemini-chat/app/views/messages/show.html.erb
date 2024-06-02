@@ -1,0 +1,8 @@
+<h1>Msg #id</h1>
+
+<p>This has been created simply to troubleshoot/debug a message. This should be forbidden in PROD!</p>
+
+<% @message.as_json.each do |k,v| %>
+    <b><%= k %></b>:
+    <i><%= v %></i><br/>
+<% end %>
