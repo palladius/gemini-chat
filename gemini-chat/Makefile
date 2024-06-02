@@ -16,9 +16,10 @@ dev:
 credentials-edit: credentials-edit-dev
 
 credentials-edit-dev:
-	rails credentials:edit
+	EDITOR="code --wait" bin/rails credentials:edit
+
 credentials-edit-prod:
-	RAILS_ENV=production rails credentials:edit
+	EDITOR="code --wait" RAILS_ENV=production rails credentials:edit
 
 test-db:
 	echo Room.count | rails c

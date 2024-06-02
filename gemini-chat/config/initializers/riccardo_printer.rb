@@ -15,14 +15,17 @@ AppUrlProd = 'https://gemini-news-crawler-prod-x42ijqglgq-ew.a.run.app/'
 CloudRunJob = ENV.fetch 'CLOUD_RUN_JOB', nil
 IsCloudRun = !!CloudRunJob
 
+DATABASE_URL_DEV = Rails.application.credentials.env[:DATABASE_URL_DEV] rescue nil
+DATABASE_URL_PROD = Rails.application.credentials.env[:DATABASE_URL_PROD] rescue nil
+
 emoji = '♊️💬'
-# 🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡
+# ♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬
 puts "#{emoji} #{ emoji * 30}"
 
 puts "#{emoji} Welcome to #{APP_NAME} v#{APP_VERSION}"
 puts "#{emoji} To check that DB is fine, let me paste a few 🕵️‍♂️ SECRET things:"
 # Secret stuff
-%w{ DATABASE_URL_DEV DATABASE_URL_PROD RAILS_MASTER_KEY NEWSAPI_COM_KEY GEMINI_KEY GCP_KEY_PATH}.sort.each do |env_key|
+%w{ DATABASE_URL_DEV DATABASE_URL_PROD RAILS_MASTER_KEY GEMINI_KEY }.sort.each do |env_key|
   puts "#{emoji} 🕵️‍♂️ ENV[#{env_key}]: #{ ENV.fetch( env_key, '🤷' ).first 5}... (size: #{ENV.fetch( env_key, '🤷' ).size})"
 end
 puts "#{emoji} .. which is why I only show the top N chars. Note that Gemini and NewsAPI keys are useless so far.."
