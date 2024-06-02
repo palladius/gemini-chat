@@ -34,3 +34,6 @@ test-db:
 db-drop-YES-I_AM_SURE:
 	rake db:drop
 	rake db:migrate db:seed
+
+gemini-respond-in-prod:
+	echo Room.gemini_reply_all | RAILS_ENV=production rails c
