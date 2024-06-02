@@ -27,7 +27,7 @@ else
   echo 'Riccardo NOT LOCAL probably in the Cloud'
 fi
 
-if which gcloud ; then
+if which gcloud >/dev/null ; then
   echo "👒 [GCLOUD AVAILABLE!] Parsing secret wich gcloud - wOOOt 2024 news"
   gcloud secrets versions access latest --secret=gemini-chat-envrc > .tmp.gcloud-envrc ||
     rm .tmp.gcloud-envrc  # remove if failed
@@ -148,19 +148,17 @@ gcloud --project "$CLOUDRUN_PROJECT_ID" \
       --set-env-vars="RAILS_SERVE_STATIC_FILES=true" \
       --set-env-vars="MESSAGGIO_OCCASIONALE=$MESSAGGIO_OCCASIONALE" \
       --set-env-vars="RAILS_LOG_TO_STDOUT=yesplease" \
-      --set-env-vars="DATABASE_URL_DEV=$DATABASE_URL_DEV" \
-      --set-env-vars="DATABASE_URL_PROD=$DATABASE_URL_PROD" \
-      --set-env-vars="NEWSAPI_COM_KEY=$NEWSAPI_COM_KEY" \
       --set-env-vars="PROJECT_ID=$PROJECT_ID" \
       --set-env-vars="GEMINI_KEY=$GEMINI_KEY" \
       --set-env-vars="RUBY_YJIT_ENABLE=true" \
-      --set-env-vars="PALM_API_KEY_GEMINI=$GEMINI_KEY" \
-      --set-env-vars=GCP_KEY_PATH_FROM_WEBAPP="/geminews-key/geminews-key" \
       --set-env-vars=ENABLE_GCP='true' \
-      --set-env-vars=APP_NAME='GemiNews CB-CR-magic' \
-      --set-secrets="/secretenvrc/gemini-chat-envrc=gemini-chat-envrc:latest" \
-      --set-secrets="/geminews-key/geminews-key=geminews-key:latest" \
+      --set-env-vars=APP_NAME='GeminiChat CB-CR-magic' \
       --allow-unauthenticated
+
+# Non li uso al momento.
+# --set-env-vars=GCP_KEY_PATH_FROM_WEBAPP="/geminews-key/geminews-key" \
+# --set-secrets="/secretenvrc/gemini-chat-envrc=gemini-chat-envrc:latest" \
+# --set-secrets="/geminews-key/geminews-key=geminews-key:latest" \
 
 
 # Dubito serva:       --set-env-vars="SECRET_KEY_BASE=TODO" \
