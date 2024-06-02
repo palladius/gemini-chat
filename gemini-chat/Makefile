@@ -9,9 +9,15 @@ generate:
 
 clean:
 	rails tmp:clear
+# It only works with HTTP:// not HTTPS, chrome complains
 dev:
 	rails assets:precompile
-	rails s -p 8081
+	rails s -p 8081 -b 0.0.0.0
+prod:
+	RAILS_ENV=production rails assets:precompile
+	RAILS_ENV=production rails db:migrate
+	RAILS_ENV=production rails db:seed
+	RAILS_ENV=production bin/docker-entrypoint rails s -p 8080 -b 0.0.0.0
 
 credentials-edit: credentials-edit-dev
 

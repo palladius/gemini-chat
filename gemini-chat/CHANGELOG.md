@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.4.9 deniugging a balus and a new bug. msgs are now tripled!
 2024-06-02 0.4.9 moving to port 8080
 2024-06-02 0.4.8 [ops] Trying really hard to fix ENV stuff for redis.
 2024-06-02 0.4.7 [ops] Adding Redis to GCP and finding out the IP address

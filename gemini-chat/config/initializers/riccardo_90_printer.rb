@@ -1,23 +1,5 @@
 
 
-APP_NAME = ENV.fetch 'APP_NAME', 'GemiNews'
-EmojiAppName = "♊️ GeminiChat 💬"
-APP_VERSION = `cat ./VERSION`.chomp rescue "ERROR: #{$!}"
-# Note this is NOT necessary to run GCP, its just ONE way.
-GAC = ENV.fetch 'GOOGLE_APPLICATION_CREDENTIALS', nil
-GOOGLE_APPLICATION_CREDENTIALS  = ENV.fetch 'GOOGLE_APPLICATION_CREDENTIALS', nil
-EmbeddingEmoji = '🗿'
-
-AppUrlDev  = 'https://gemini-news-crawler-dev-x42ijqglgq-ew.a.run.app/'
-AppUrlProd = 'https://gemini-news-crawler-prod-x42ijqglgq-ew.a.run.app/'
-
-# https://cloud.google.com/run/docs/container-contract#env-vars
-CloudRunJob = ENV.fetch 'CLOUD_RUN_JOB', nil
-IsCloudRun = !!CloudRunJob
-
-DATABASE_URL_DEV = Rails.application.credentials.env[:DATABASE_URL_DEV] rescue nil
-DATABASE_URL_PROD = Rails.application.credentials.env[:DATABASE_URL_PROD] rescue nil
-
 emoji = '♊️💬'
 # ♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬♊️💬
 puts "#{emoji} #{ emoji * 30}"
@@ -52,31 +34,4 @@ puts "#{emoji} ☁️ redis cmd on GCE: redis-cli -h #{ENV['REDIS_IP']} -p 6379"
 #puts "#{emoji} 🌞 CLOUDRUN_ENVRC_EXISTS:  #{CLOUDRUN_ENVRC_EXISTS}"
 #puts "#{emoji} 🌞 GOOGLE_APPLICATION_CREDENTIALS:  #{GOOGLE_APPLICATION_CREDENTIALS}"
 
-
 puts "#{emoji} #{ emoji * 60}"
-
-
-
-
-
-
-
-
-
-Rails.application.configure do
-  config.hosts << "gemini-chat-dev-x42ijqglgq-ew.a.run.app"
-  config.hosts << /.*\.proxy\.googleprod\.com/
-  config.hosts << /gemini-chat.*\.run\.app/
-  config.hosts << "localhost:3000"
-  config.hosts << "localhost"
-  config.hosts << "localhost:3001"
-  config.hosts << "localhost:8080"
-  # Skip DNS rebinding protection for the default health check endpoint.
-  #config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  #config.host_authorization = { exclude: ->(request) { request.path == "/statusz" } }
-
-  # Disable AR logging for super long thingy: https://stackoverflow.com/questions/13051949/how-to-disable-activerecord-logging-for-a-certain-column
-  # config.filter_parameters << :title_embedding
-  # config.filter_parameters << :article_embedding
-  # config.filter_parameters << :summary_embedding
-end
