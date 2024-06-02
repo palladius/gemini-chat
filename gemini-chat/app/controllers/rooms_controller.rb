@@ -13,9 +13,11 @@ class RoomsController < ApplicationController
   end
 
   def show
+    # TODO redirect to inex if doesnt exist
     @current_user = current_user
-    @single_room = Room.find(params[:id])
-    @rooms = Room.public_rooms
+    @single_room = Room.find(params[:id]) rescue nil
+    #redirect_to '/rooms#index' unless @single_room
+    @rooms = Room.public_rooms.order(:name)
     @users = User.all_except(@current_user)
     @messages = @single_room.messages
     # lets initialize new stuff

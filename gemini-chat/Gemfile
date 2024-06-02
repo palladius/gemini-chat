@@ -12,6 +12,7 @@ gem 'faraday'    # for Ollama
 gem 'gemini-ai'  # for Gemini API
 gem 'google_palm_api' # for GooglePalm API
 gem 'redcarpet' # for markdown
+#gem 'activeadmin' # to admin new users and stuff.. better not, first i need to install devise and have PROPER users..
 # on Mac:
 # gem install unicode -- --with-cflags="-Wno-incompatible-function-pointer-types"
 # Riccaerdo end
