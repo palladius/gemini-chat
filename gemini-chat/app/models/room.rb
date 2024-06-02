@@ -36,19 +36,19 @@ class Room < ApplicationRecord
     gemini_response.raw_response['candidates'][0]['content']['parts'][0]['text']
   end
 
-  def answer_with_gemini!
-    gemini_model = GeminiLLM.defaults[:chat_completion_model_name]
-    gemini_user = User.find_or_create_by(username: gemini_model, is_bot: true)
-    new_msg = Message.create(
-      user_id: gemini_user.id,
-      room_id: self.id,
-      msg_type: 'MODEL',
-      content: response,
-      internal_stuff: 'This is a real answer from Gemini as a response to a chat. TODO make sure the last msg is from a USER'
-    )
-    # new_msg.broadcast_append_to self.room
-    new_msg
-  end
+  # def answer_with_gemini!
+  #   gemini_model = GeminiLLM.defaults[:chat_completion_model_name]
+  #   gemini_user = User.find_or_create_by(username: gemini_model, is_bot: true)
+  #   new_msg = Message.create(
+  #     user_id: gemini_user.id,
+  #     room_id: self.id,
+  #     msg_type: 'MODEL',
+  #     content: response,
+  #     internal_stuff: 'This is a real answer from Gemini as a response to a chat. TODO make sure the last msg is from a USER'
+  #   )
+  #   # new_msg.broadcast_append_to self.room
+  #   new_msg
+  # end
 
   def answer_with_gemini
     #puts '♊️♊️♊️ answer_with_gemini() BEGIN: This might take a while..'
@@ -64,7 +64,18 @@ class Room < ApplicationRecord
     return nil unless response.to_s.length > 3
     # we have a response, lets save a message!
     puts '♊️♊️♊️ answer_with_gemini() MIDDLE: we do have a response!'
-    answer_with_gemini!
+    #answer_with_gemini!
+    gemini_model = GeminiLLM.defaults[:chat_completion_model_name]
+    gemini_user = User.find_or_create_by(username: gemini_model, is_bot: true)
+    new_msg = Message.create(
+      user_id: gemini_user.id,
+      room_id: self.id,
+      msg_type: 'MODEL',
+      content: response,
+      internal_stuff: 'This is a real answer from Gemini as a response to a chat. TODO make sure the last msg is from a USER'
+    )
+    # new_msg.broadcast_append_to self.room
+    new_msg
   end
 
   # structures messages of a chat in Gemini (and possibly assistant) form
