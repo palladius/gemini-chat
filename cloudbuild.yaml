@@ -100,9 +100,8 @@ steps:
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'RAILS_MASTER_KEY=$_RAILS_MASTER_KEY'
+  - 'RICCARDO_REDIS_URL=$_RICCARDO_REDIS_URL'
 #  - 'DATABASE_URL_DEV=$_DATABASE_URL_DEV'
-#  - 'NEWSAPI_COM_KEY=$_NEWSAPI_COM_KEY'
-#  - 'GEMINI_KEY=$_GEMINI_KEY'
 
 # Questo finalmente funge!
 - name: 'gcr.io/cloud-builders/gcloud'
