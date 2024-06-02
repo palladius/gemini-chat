@@ -2,7 +2,8 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
-2024-06-02 0.4.4 [dev] nicer view nuvolette..
+2024-06-02 0.4.5 [dev] nicer view nuvolette..
+                 [ops] moving autotag and build script one folder below so its centered in RAILS_ROOT
 2024-06-02 0.4.4 [ops] added autotag
 2024-06-02 0.4.3 [dev] finished Abi tutorial
 2024-06-02 0.4.2 [ops] Adding cloud build and ENVs and secrets.

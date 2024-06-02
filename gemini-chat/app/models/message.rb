@@ -13,4 +13,6 @@ class Message < ApplicationRecord
     end
   end
 
+  def to_s = content
+
 end
