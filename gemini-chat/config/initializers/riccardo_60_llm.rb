@@ -70,13 +70,13 @@ BookOfLLMs = {
 ###### Gbaptista instead:
 #ENV['GOOGLE_API_KEY'] =  Rails.application.credentials.env.GEMINI_API_KEY_BIG_QUOTA
 # This works!
-client = Gemini.new(
-  credentials: {
-    service: 'generative-language-api',
-    api_key: Rails.application.credentials.env.GEMINI_API_KEY_BIG_QUOTA # ENV['GOOGLE_API_KEY']
-  },
-  options: { model: 'gemini-pro', server_sent_events: true }
-)
-result = client.stream_generate_content({
-  contents: { role: 'user', parts: { text: 'hi! How are you? And what day is today?' } }
-})
+# client = Gemini.new(
+#   credentials: {
+#     service: 'generative-language-api',
+#     api_key: Rails.application.credentials.env.GEMINI_API_KEY_BIG_QUOTA # ENV['GOOGLE_API_KEY']
+#   },
+#   options: { model: 'gemini-pro', server_sent_events: true }
+# )
+# result = client.stream_generate_content({
+#   contents: { role: 'user', parts: { text: 'hi! How are you? And what day is today?' } }
+# })

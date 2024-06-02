@@ -2,6 +2,8 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.5.7 adding redcarpet
+2024-06-02 0.5.6 fixing dockerfile maybe?
 2024-06-02 0.5.5 Moving/trying to move to ruby `3.3`
 2024-06-02 0.5.5 and here i try to enable Gemini autoresponder!
 2024-06-02 0.5.4 I have a feeling that this new auto-response doesnt work, and breaks JS automation.

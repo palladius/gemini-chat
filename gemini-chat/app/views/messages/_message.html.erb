@@ -5,3 +5,13 @@
     </span>
   </div>
 </div>
+<!--
+  <div class="cont-<%= message.user.id %>">
+  <div class="<%= message.user.message_box_class %> msg-<%= message.user.id %> " >
+    <span class="name">
+      <%#= render_fancy_chat_message(message: message, user: current_user) %>
+      <%= markdown_to_html(message.content).html_safe %>
+    </span>
+  </div>
+</div>
+-->

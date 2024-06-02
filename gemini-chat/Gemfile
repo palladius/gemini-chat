@@ -11,10 +11,13 @@ gem 'googleauth' # for GCP Gemini
 gem 'faraday'    # for Ollama
 gem 'gemini-ai'  # for Gemini API
 gem 'google_palm_api' # for GooglePalm API
+gem 'redcarpet' # for markdown
 # on Mac:
 # gem install unicode -- --with-cflags="-Wno-incompatible-function-pointer-types"
 # Riccaerdo end
 ###################################
+
+# c= Message.find(19).content
 
 
 
