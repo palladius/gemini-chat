@@ -18,5 +18,8 @@ class Room < ApplicationRecord
     single_room
   end
 
+  def self.emoji = '🚪'
+  def self.names = all.map{|x| x.name }
+
 
 end

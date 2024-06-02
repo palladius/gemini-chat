@@ -11,6 +11,6 @@ module ChatHelper
               ' 🤫 ' : # 🤐
               link_to(message.user.username, message.user).html_safe
     # This ensures we stay a SafeBuffer class: https://stackoverflow.com/questions/65234856/html-safe-and-non-html-safe-concatenation
-    ''.html_safe + time_preamble  + user_preamble + message.to_s
+    ''.html_safe + time_preamble + ' ' + user_preamble + ' ' + content_tag(:b, message.to_s)
   end
 end

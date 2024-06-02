@@ -13,13 +13,19 @@
       </div>
     </div>
     <h4> Rooms </h4>
-    <%= render partial: "layouts/new_room_form" %>
-    <div>
-      <%= turbo_stream_from "rooms" %>
-      <div id="rooms">
-        <%= render @rooms %>
+      <%= render partial: "layouts/new_room_form" %>
+
+      <div>
+        <%= turbo_stream_from "rooms" %>
+        <div id="rooms">
+          <%= render @rooms %>
+        </div>
       </div>
-    </div>
+
+    <% if current_user.admin? %>
+      <h4> Admin </h4>
+    <% end %>
+
   </div>
 
   <div class="col-md-10 bg-dark text-light">
