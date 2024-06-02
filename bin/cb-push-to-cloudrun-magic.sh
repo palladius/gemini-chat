@@ -7,12 +7,9 @@
 #Wrong:
 # expected: Image 'europe-west1-docker.pkg.dev/palladius-genai/gemini-chat-manhouse/gemini-chat-manhouse:latest' not found.
 #  reality:        europe-west1-docker.pkg.dev/palladius-genai/gemini-chat/gemini-chat
-#
-# TODO(ricc): add a bunch of eNVs from local to Secret manager to fix the 2.0.4buggy
 
-
-export DEPLOY_VERSION='2.0.6'
-#
+export DEPLOY_VERSION='2.0.7'
+# 02jun24  2.0.7       Removed bunch of vars, since im moving 99% of them to RAC (for DRY reasons)
 # 02jun24  2.0.6       Copied from gemini-news 2.0.5 and branched even since.
 # 31may24  2.0.5       Added ENV[RUBY_YJIT_ENABLE]=true - should compile stuff faster now.
 # 19may24  2.0.4buggy  Added ENV[PALM_API_KEY_GEMINI] - should fix PalmLLM. Note I used GEMINI_KEY for since  PALM_API_KEY_GEMINI is actually not in
@@ -149,13 +146,13 @@ gcloud --project "$CLOUDRUN_PROJECT_ID" \
       --set-env-vars="MESSAGGIO_OCCASIONALE=$MESSAGGIO_OCCASIONALE" \
       --set-env-vars="RAILS_LOG_TO_STDOUT=yesplease" \
       --set-env-vars="PROJECT_ID=$PROJECT_ID" \
-      --set-env-vars="GEMINI_KEY=$GEMINI_KEY" \
       --set-env-vars="RUBY_YJIT_ENABLE=true" \
       --set-env-vars=ENABLE_GCP='true' \
       --set-env-vars=APP_NAME='GeminiChat CB-CR-magic' \
       --allow-unauthenticated
 
 # Non li uso al momento.
+#      --set-env-vars="GEMINI_KEY=$GEMINI_KEY" \
 # --set-env-vars=GCP_KEY_PATH_FROM_WEBAPP="/geminews-key/geminews-key" \
 # --set-secrets="/secretenvrc/gemini-chat-envrc=gemini-chat-envrc:latest" \
 # --set-secrets="/geminews-key/geminews-key=geminews-key:latest" \

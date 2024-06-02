@@ -62,7 +62,7 @@ steps:
   #id: 1. Docker Build - to CB_LATEST # might be error prone vs the one create from computer
   id:  'step1 docker build' ##1. Docker Build - to CB_LATEST # might be error prone vs the one create from computer
   args: ['build', '-t', "${_REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-chat/gemini-chat:latest", '.']
-  dir: webapp
+  dir: gemini-chat
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'RAILS_MASTER_KEY=$_RAILS_MASTER_KEY'
@@ -75,7 +75,7 @@ steps:
     - 'tag'
     - "${_REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-chat/gemini-chat:latest"
     - "${_REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-chat/gemini-chat:sha-$SHORT_SHA"
-  dir: webapp
+  dir: gemini-chat
 
 - name: 'gcr.io/cloud-builders/docker'
   #name: 3. Tag from SHA to VERSION - proviamo con Docker
@@ -86,7 +86,7 @@ steps:
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'RAILS_MASTER_KEY=$_RAILS_MASTER_KEY'
-  dir: webapp
+  dir: gemini-chat
 
 
 # Questo finalmente funge!
@@ -96,7 +96,7 @@ steps:
   args:
   - bin/cb-push-to-cloudrun-magic.sh
   - dev
-  dir: webapp
+  dir: gemini-chat
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'RAILS_MASTER_KEY=$_RAILS_MASTER_KEY'
@@ -112,7 +112,7 @@ steps:
   - bin/cb-push-to-cloudrun-magic.sh
   - prod
   allowFailure: true
-  dir: webapp
+  dir: gemini-chat
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'RAILS_MASTER_KEY=$_RAILS_MASTER_KEY'
