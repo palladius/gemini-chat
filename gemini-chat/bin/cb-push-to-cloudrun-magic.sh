@@ -147,6 +147,7 @@ gcloud --project "$CLOUDRUN_PROJECT_ID" \
       --set-env-vars="RAILS_MASTER_KEY=$RAILS_MASTER_KEY" \
       --set-env-vars="RAILS_ENV=$RAILS_ENV" \
       --set-env-vars="REDIS_URL=$RICCARDO_REDIS_URL" \
+      --set-env-vars="REDIS_DISABLE_CLIENT_COMMAND=true" \
       --set-env-vars="RAILS_SERVE_STATIC_FILES=true" \
       --set-env-vars="MESSAGGIO_OCCASIONALE=$MESSAGGIO_OCCASIONALE" \
       --set-env-vars="RAILS_LOG_TO_STDOUT=yesplease" \

@@ -7,13 +7,24 @@
 # end
 # https://gitlab.com/gitlab-org/gitlab/-/merge_requests/75173
 
-if IsCloudRun
-  puts("🏃🏻🏃🏻 Cloud Run detected 🏃🏻🏃🏻: Making id=nil as Gitlab friends found out.")
-  Rails.application.configure do
-    config.redis = { id: nil }
+# if IsCloudRun
+#   puts("🏃🏻🏃🏻 Cloud Run detected 🏃🏻🏃🏻: Making id=nil as Gitlab friends found out.")
+#   Rails.application.configure do
+#     config.redis = { id: nil }
+#     # config.action_cable.mount_path = nil
+#     # config.action_cable.url = "wss://example.com/cable"
+#     # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
+#   end
+# end
 
-    # config.action_cable.mount_path = nil
-    # config.action_cable.url = "wss://example.com/cable"
-    # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
-  end
+
+# FIX GCP!!
+
+# frozen_string_literal: true
+
+require 'action_cable/subscription_adapter/redis'
+
+ActionCable::SubscriptionAdapter::Redis.redis_connector = lambda do |config|
+  config[:id] = nil if ENV['REDIS_DISABLE_CLIENT_COMMAND'].present?
+  Redis.new(config.except(:adapter, :channel_prefix))
 end
