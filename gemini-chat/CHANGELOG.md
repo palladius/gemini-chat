@@ -2,7 +2,8 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
-2024-06-02 0.4.2 [dev] finished Abi tutorial
+2024-06-02 0.4.4 [ops] added autotag
+2024-06-02 0.4.3 [dev] finished Abi tutorial
 2024-06-02 0.4.2 [ops] Adding cloud build and ENVs and secrets.
 2024-06-02 0.4.1 refine Participants
 2024-06-02 0.4.0 added Participants
