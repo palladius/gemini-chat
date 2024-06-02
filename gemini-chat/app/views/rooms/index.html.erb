@@ -47,6 +47,8 @@
       </div>
       <!-- # abi typo -->
       <%= render partial: 'layouts/new_message_form' %>
-    <% end %>
-  </div>
+      <% else %>
+        <%= render 'rooms/rooms_list' %>
+      <% end %>
+    </div>
 </div>

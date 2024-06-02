@@ -1,0 +1,7 @@
+
+<h1>All rooms</h1>
+
+  <% @rooms.each do |room| %>
+  <div class="overflow-y-auto"><h2><%= room.name %></h2></div>
+  <div class="overflow-y-hidden"><span><%= room.description %></span></div>
+  <% end %>
