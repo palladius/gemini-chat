@@ -8,20 +8,26 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Room.create(name: 'Music')
-Room.create(name: 'Gemini') # model
-room_gcp = Room.create(name: 'GoogleCloud') # model
-# why uppercase?!?
-User.create(username: 'drake')
-User.create(username: 'elon')
-larry = User.create(username: 'larry')
-User.create(username: 'sergey')
-# better
-User.create(username: 'ricc')
+def create_stuff()
+  puts("Creating stuff on seed..")
+  Room.create(name: 'Music')
+  Room.create(name: 'Gemini') # model
+  room_gcp = Room.create(name: 'GoogleCloud') # model
+  # why uppercase?!?
+  User.create(username: 'drake')
+  User.create(username: 'elon')
+  larry = User.create(username: 'larry')
+  User.create(username: 'sergey')
+  # better
+  User.create(username: 'ricc')
 
-# Messages
+  # Messages
 
-Message.create(
-  user_id: larry.id ,
-  room_id: room_gcp.id,
-  content: "created by rake db:seed on #{Time.now}" )
+  Message.create(
+    user_id: larry.id ,
+    room_id: room_gcp.id,
+    content: "created by rake db:seed on #{Time.now}" )
+end
+
+
+create_stuff unless IsCloudRun

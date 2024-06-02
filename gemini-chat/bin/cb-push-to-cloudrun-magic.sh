@@ -131,6 +131,7 @@ echo 'WARNING: For this to work you need to 1. upload your ENVRC to Secret MAnag
 # but its not too simple to fix.
 #########
 # Riccardo in europe-west1 - TODO move to ENV stuff
+# Redis: 10.103.87.131:6379
 #export MY_REGIONAL_SUBNET='10.132.0.0/20'
 export MY_REGIONAL_SUBNET='projects/palladius-genai/regions/europe-west1/subnetworks/default'
 
