@@ -1,3 +1,6 @@
+
+# eg, redis-cli -h 10.103.87.131  -p 6379
+
 development:
   adapter: redis
   #url: redis://localhost:6379/1

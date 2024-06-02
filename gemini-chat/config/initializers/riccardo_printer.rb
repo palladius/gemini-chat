@@ -34,12 +34,14 @@ puts "#{emoji} 🌞 Rails.env: #{Rails.env}"
   puts "#{emoji} 🌞 ENV[#{env_key}]: #{ ENV.fetch( env_key, '🤷' )}"
 end
 # Now normal variables..
+# redis cmd
 puts "#{emoji} 🧊 REDIS_IP:        #{ENV['REDIS_IP']}"
 puts "#{emoji} 🧊 REDIS_REGION:    #{ENV['REDIS_REGION']}"
 puts "#{emoji} 🧊 REDIS_URL:       '#{ENV['REDIS_URL']}' (what I use here - should be prod one only in Clourd Run)"
 puts "#{emoji} 🧊 RICCARDO_REDIS_URL: '#{ENV['RICCARDO_REDIS_URL'] }' (prod one)"
 puts "#{emoji} ☁️ CloudRunJob: #{CloudRunJob}"
 puts "#{emoji} ☁️ IsCloudRun:  #{IsCloudRun}"
+puts "#{emoji} ☁️ redis cmd on GCE: redis-cli -h #{ENV['REDIS_IP']} -p 6379"
 
 #puts "#{emoji} 🌞 GCP_KEY_PATH:           #{GCP_KEY_PATH}"
 #puts "#{emoji} 🌞 GCP_KEY_PATH_EXISTS:    #{GCP_KEY_PATH_EXISTS}"
