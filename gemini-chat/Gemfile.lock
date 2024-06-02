@@ -114,7 +114,14 @@ GEM
     faraday-typhoeus (1.1.0)
       faraday (~> 2.0)
       typhoeus (~> 1.4)
-    ffi (1.16.3)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
     gemini-ai (4.0.0)
       event_stream_parser (~> 1.0)
       faraday (~> 2.9)
@@ -178,7 +185,7 @@ GEM
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.11)
+    net-imap (0.4.12)
       date
       net-protocol
     net-pop (0.1.2)
@@ -193,8 +200,6 @@ GEM
     nokogiri (1.16.5-arm-linux)
       racc (~> 1.4)
     nokogiri (1.16.5-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.5-x86-linux)
       racc (~> 1.4)
     nokogiri (1.16.5-x86_64-darwin)
       racc (~> 1.4)
@@ -247,7 +252,6 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.2.1)
-    rb_sys (0.9.87)
     rdoc (6.7.0)
       psych (>= 4.0.0)
     redis (5.2.0)
@@ -288,7 +292,6 @@ GEM
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm-linux)
     sqlite3 (1.7.3-arm64-darwin)
-    sqlite3 (1.7.3-x86-linux)
     sqlite3 (1.7.3-x86_64-darwin)
     sqlite3 (1.7.3-x86_64-linux)
     stimulus-rails (1.3.3)
@@ -296,13 +299,12 @@ GEM
     stringio (3.1.0)
     strscan (3.1.0)
     thor (1.3.1)
-    tiktoken_ruby (0.0.9)
-      rb_sys (= 0.9.87)
     tiktoken_ruby (0.0.9-aarch64-linux)
     tiktoken_ruby (0.0.9-arm-linux)
     tiktoken_ruby (0.0.9-arm64-darwin)
     tiktoken_ruby (0.0.9-x86_64-darwin)
     tiktoken_ruby (0.0.9-x86_64-linux)
+    tiktoken_ruby (0.0.9-x86_64-linux-musl)
     tilt (2.3.0)
     timeout (0.4.1)
     to_bool (2.0.0)
@@ -332,11 +334,16 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
   arm-linux
+  arm-linux-gnu
+  arm-linux-musl
   arm64-darwin
-  x86-linux
   x86_64-darwin
   x86_64-linux
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   bootsnap
@@ -363,7 +370,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.3.1p55
 
 BUNDLED WITH
-   2.5.10
+   2.5.9

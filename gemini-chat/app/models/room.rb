@@ -1,9 +1,10 @@
 class Room < ApplicationRecord
   validates_uniqueness_of :name
+  validates_length_of :name, :minimum => 3
   scope :public_rooms, -> { where(is_private: false) }
   has_many :participants, dependent: :destroy
   after_create_commit { broadcast_if_public }
-  #after_create_commit { answer_with_gemini_if_public }
+  after_create_commit { answer_with_gemini_if_public }
   has_many :messages
 
   def broadcast_if_public
@@ -80,5 +81,13 @@ class Room < ApplicationRecord
     messages_for_gemini.last[:role] != 'MODEL' rescue false
   end
 
+  def to_s = haunted_by_gemini? ? "👻 #{name}" : "🚪 #{name}"
+
+  def self.gemini_reply_all
+    self.all.map do |room|
+      puts("Room #{room}: gemini_reply_all..")
+      room.answer_with_gemini_if_public
+    end
+  end
 
 end

@@ -5,6 +5,13 @@ Creating my first chat with Gemini
 https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
  * v2: https://www.youtube.com/watch?v=UvTLumcEMgU using rails7 and `electron`.
 
+## Config
+
+* rails 7.1.3.3
+* ruby 3.something (moving from 3.1 to 3.3 for some local Mac allucinations)
+* using `redis` on GCP and rocking it (see `config/initializers/` monkeypatching for GCP)
+
+
 ## PROD
 
 Note Ricc: you need to install a Redis too, probably, for Turbo to work.
