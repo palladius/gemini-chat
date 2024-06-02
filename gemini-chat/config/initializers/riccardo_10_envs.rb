@@ -10,8 +10,8 @@ GAC = ENV.fetch 'GOOGLE_APPLICATION_CREDENTIALS', nil
 GOOGLE_APPLICATION_CREDENTIALS  = ENV.fetch 'GOOGLE_APPLICATION_CREDENTIALS', nil
 EmbeddingEmoji = '🗿'
 
-AppUrlDev  = 'https://gemini-news-crawler-dev-x42ijqglgq-ew.a.run.app/'
-AppUrlProd = 'https://gemini-news-crawler-prod-x42ijqglgq-ew.a.run.app/'
+AppUrlDev  = 'https://gemini-chat-dev-x42ijqglgq-ew.a.run.app/'
+AppUrlProd = 'https://gemini-chat-prod-x42ijqglgq-ew.a.run.app/'
 
 # https://cloud.google.com/run/docs/container-contract#env-vars
 CloudRunJob = ENV.fetch 'CLOUD_RUN_JOB', nil

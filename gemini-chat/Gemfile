@@ -4,6 +4,7 @@ ruby "3.1.2"
 
 # Riccaerdo being
 gem "sassc-rails" # fixes bug by Abi
+gem 'langchainrb'
 # Riccaerdo end
 
 

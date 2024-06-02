@@ -10,8 +10,8 @@
 
 def create_stuff()
   puts("Creating stuff on seed..")
-  Room.create(name: 'Music')
-  Room.create(name: 'Gemini') # model
+  music_room = Room.create(name: 'Music')
+  gemini_room = Room.create(name: 'Gemini') # model
   room_gcp = Room.create(name: 'GoogleCloud') # model
   # why uppercase?!?
   User.create(username: 'drake')
@@ -19,15 +19,36 @@ def create_stuff()
   larry = User.create(username: 'larry')
   User.create(username: 'sergey')
   # better
-  User.create(username: 'ricc')
+  ricc = User.create(username: 'ricc')
+  gemini = User.create(username: 'gemini-1.5-flash', is_bot: true)
 
   # Messages
 
   Message.create(
     user_id: larry.id ,
     room_id: room_gcp.id,
-    content: "created by rake db:seed on #{Time.now}" )
-end
+    msg_type: 'person',
+    content: "This room was created by rake db:seed on #{Time.now}, in order to talk about anything GCP-related." )
+
+    Message.create(
+      user_id: gemini.id ,
+      room_id: room_gcp.id,
+      msg_type: 'bot',
+      content: "Bella Larry, did you know I come from Bologna?" )
+
+    Message.create(
+      user_id: gemini.id ,
+      room_id: gemini_room.id,
+      msg_type: 'bot',
+      content: "Hi everyone, I'm Gemini. Riccardo plans on adding Gemini functionality on these chats some time soon." )
+
+    Message.create(
+      user_id: ricc.id ,
+      room_id: music_room.id,
+      #msg_type: 'bot',
+      content: "I love Dream Theater, Queen, Kings of Leon, and Genesis from Peter Gabriel era." )
+
+  end
 
 
 create_stuff unless IsCloudRun

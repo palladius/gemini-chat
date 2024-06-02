@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_02_052358) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_02_124649) do
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
-    t.string "type"
+    t.string "msg_type"
     t.text "content"
     t.text "internal_stuff"
     t.datetime "created_at", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_052358) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_bot", default: false
   end
 
   add_foreign_key "messages", "rooms"

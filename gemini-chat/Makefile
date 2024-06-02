@@ -30,3 +30,7 @@ credentials-edit-prod:
 test-db:
 	echo Room.count | rails c
 	echo User.count | rails c
+
+db-drop-YES-I_AM_SURE:
+	rake db:drop
+	rake db:migrate db:seed
