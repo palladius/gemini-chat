@@ -130,6 +130,9 @@ echo 'WARNING: For this to work you need to 1. upload your ENVRC to Secret MAnag
 # I'm too dumb to use DEV and PROD at same time DATABASE_URL_DEV and DATABASE_URL_PROD
 # but its not too simple to fix.
 #########
+# Riccardo in europe-west1 - TODO move to ENV stuff
+#export MY_REGIONAL_SUBNET='10.132.0.0/20'
+export MY_REGIONAL_SUBNET='projects/palladius-genai/regions/europe-west1/subnetworks/default'
 
 gcloud --project "$CLOUDRUN_PROJECT_ID" \
     beta run deploy "$APP_TO_DEPLOY" \
@@ -150,6 +153,8 @@ gcloud --project "$CLOUDRUN_PROJECT_ID" \
       --set-env-vars="RUBY_YJIT_ENABLE=true" \
       --set-env-vars=ENABLE_GCP='true' \
       --set-env-vars=APP_NAME='GeminiChat CB-CR-magic' \
+      --network=default \
+      --subnet="$MY_REGIONAL_SUBNET" \
       --allow-unauthenticated
 
 # Non li uso al momento.
