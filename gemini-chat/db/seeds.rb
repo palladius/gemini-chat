@@ -12,13 +12,14 @@ def create_stuff()
   puts("Creating stuff on seed..")
   music_room = Room.create(name: 'Music')
   gemini_room = Room.create(name: 'Gemini') # model
-  room_gcp = Room.create(name: 'GoogleCloud') # model
+  room_gcp = Room.create(name: 'GoogleCloud', description: 'Here GCP aficionados, mostly tech folks, will discuss GCP in length. Feel free to add your wisdom.')
+  room_travel = Room.create name: 'Carlesso holidays',
+    description: 'We are a family of 4 living in Zurich. My kids are 4 and 6 and speak perfect English and Italian, and a little German. We would like to organize a trip in the next months to some nice place. We like to walk, sightseeing, and we travel using public transport (no car).'
   # why uppercase?!?
   User.create(username: 'drake')
   User.create(username: 'elon')
   larry = User.create(username: 'larry')
   User.create(username: 'sergey')
-  # better
   ricc = User.create(username: 'ricc')
   gemini = User.create(username: 'gemini-1.5-flash', is_bot: true)
 
@@ -36,11 +37,28 @@ def create_stuff()
       msg_type: 'bot',
       content: "Bella Larry, did you know I come from Bologna?" )
 
+      Message.create(
+        user_id: ricc.id ,
+        room_id: room_gcp.id,
+        content: "Me too!" )
+
+        Message.create(
+        user_id: larry.id ,
+        room_id: room_gcp.id,
+        msg_type: 'bot',
+        content: "Nope, I don't remember either of you." )
+
+
     Message.create(
-      user_id: gemini.id ,
-      room_id: gemini_room.id,
-      msg_type: 'bot',
-      content: "Hi everyone, I'm Gemini. Riccardo plans on adding Gemini functionality on these chats some time soon." )
+        user_id: gemini.id ,
+        room_id: gemini_room.id,
+        msg_type: 'bot',
+        content: "Hi everyone, I'm Gemini. Riccardo plans on adding Gemini functionality on these chats some time soon." )
+    Message.create(
+          user_id: gemini.id ,
+          room_id: room_travel.id,
+          msg_type: 'bot',
+          content: "Hi everyone, I'm Gemini. This room is reserved for Carlessian trips and will have Gemini slurp the room description." )
 
     Message.create(
       user_id: ricc.id ,

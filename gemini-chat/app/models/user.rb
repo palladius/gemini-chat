@@ -11,4 +11,12 @@ class User < ApplicationRecord
     false
   end
 
+  def message_box_class
+    is_bot? ? 'message-box-bot' : 'message-box-person'
+  end
+
+  def emoji = is_bot? ? '🤖' : '🤷‍♂️'
+
+  def to_s =  "#{self.emoji} #{self.username}"
+
 end

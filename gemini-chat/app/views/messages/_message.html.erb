@@ -1,10 +1,7 @@
 <div class="cont-<%= message.user.id %>">
-  <div class="message-box msg-<%= message.user.id %> " >
-    <% # unless message.room.is_private %>
-      <span class="name">
-        <%= render_fancy_chat_message(message:, user: current_user) %>
-      </span>
-    <% # end %>
-    <%#= message.content %>
+  <div class="<%= message.user.message_box_class %> msg-<%= message.user.id %> " >
+    <span class="name">
+      <%= render_fancy_chat_message(message:, user: current_user) %>
+    </span>
   </div>
 </div>

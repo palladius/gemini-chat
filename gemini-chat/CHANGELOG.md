@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.5.1 fixed colors: blue green like Apple + gray for robot.
 2024-06-02 0.5.0 fixed TYPE and adding is_bot to users so I can create Gemini bot.
 2024-06-02 0.4.12 good old header and footer
 2024-06-02 0.4.11 This should fix GCP https://stackoverflow.com/questions/76017196/ruby-on-rails-action-cable-sidekiq-with-gcp-memorystore-redis-client-command-n
