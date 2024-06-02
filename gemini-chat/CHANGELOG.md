@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-02 0.5.3 Adding Gemini support, finally.
 2024-06-02 0.5.2 added version to footer, finally
 2024-06-02 0.5.1 fixed colors: blue green like Apple + gray for robot.
 2024-06-02 0.5.0 fixed TYPE and adding is_bot to users so I can create Gemini bot.

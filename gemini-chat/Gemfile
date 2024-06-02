@@ -2,10 +2,16 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
-# Riccaerdo being
+###################################
+# Riccardo begin
 gem "sassc-rails" # fixes bug by Abi
 gem 'langchainrb'
+gem 'googleauth' # for GCP Gemini
+gem 'faraday'    # for Ollama
+gem 'gemini-ai'  # for Gemini API
+gem 'google_palm_api' # for GooglePalm API
 # Riccaerdo end
+###################################
 
 
 
