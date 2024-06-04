@@ -11,10 +11,14 @@ class GeminiRoomReplyForeverJob < ApplicationJob
   def perform(*args)
     # Do something later
     #sleep_time ||= args[:sleep_time]
-     while true
-      puts "⏳♊️ Gemini ReplyAll 4ever: #{Time.now}"
+    job_version = '1.0'
+    sleep_distance = 3
+    while true
+      puts '⏳' * 80
+      puts "⏳♊️ Gemini ReplyAll 4ever Job v#{job_version} - every #{sleep_distance} seconds: #{Time.now}"
+      puts '⏳' * 80
       Room.gemini_reply_all
-      sleep 3
+      sleep(sleep_distance)
     end
   end
 end
