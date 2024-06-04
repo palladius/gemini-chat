@@ -37,3 +37,6 @@ db-drop-YES-I_AM_SURE:
 
 gemini-respond-in-prod:
 	echo Room.gemini_reply_all | RAILS_ENV=production rails c
+
+gemini-respond-in-prod-forever:
+	echo GeminiRoomReplyForeverJob.perform_now | RAILS_ENV=production rails c
