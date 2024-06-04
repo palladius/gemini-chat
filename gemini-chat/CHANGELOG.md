@@ -2,7 +2,8 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
-2024-06-02 0.5.13 [ops] Created a Gemini::ReplyAll job to do it forever.
+2024-06-04 0.5.14 [dev] Added super duper functionality. Now Gemini responds to '@gemini' questions :)
+2024-06-04 0.5.13 [ops] Created a Gemini::ReplyAll job to do it forever.
 2024-06-02 0.5.12 [ops] Try to move PG credentials from locally encrypted to ENV+SecretMgr.. damn.
 2024-06-02 0.5.11 Small Mac bugfix + Room gemini functionality BAD bugfix. Now it works again!
 2024-06-02 0.5.10 Moving PROD to PostgreS!!! Took me less than 5min in localhost - wow. God bless RAC! With ENV it would have taken me MUCH more (change CB, Secrets, build script, ..)

@@ -11,6 +11,13 @@ https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 * ruby 3.something (moving from 3.1 to 3.3 for some local Mac allucinations)
 * using `redis` on GCP and rocking it (see `config/initializers/` monkeypatching for GCP)
 
+## About
+
+This app works this way:
+* You launch a Gemini job which polls all chats every 2 seconds: `echo GeminiRoomReplyForeverJob.perform_now | RAILS_ENV=production rails c`
+* Then you talk to haunted rooms (see a 👻 beside room name). If not haunted, you can specify you wanna talk to Gemini by just saying "@gemini <your question>".
+
+As simple as that - pretty sweet!
 
 ## PROD
 

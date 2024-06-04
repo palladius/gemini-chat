@@ -25,6 +25,13 @@ class Room < ApplicationRecord
 
   # TODO move to model
   def haunted_by_gemini?
+    last_role = messages_for_gemini.last[:role] rescue nil
+    if last_role == 'USER' # rescue false # could be nil
+      if messages_for_gemini.last[:parts][:text].match /^@gemini/
+        puts("DEBUG not haunted by user explicitly asked for Gemini intervention: msg='#{messages_for_gemini.last[:parts][:text]}'")
+        return true
+      end
+    end
     self.name.match?(/Gemini/) || self.name.match?(/Carlesso/ ) # 🤖 gemini-1.5-flash
   end
 
@@ -35,6 +42,12 @@ class Room < ApplicationRecord
     gemini_response = GeminiLLM.chat(messages: self.messages_for_gemini)
     gemini_response.raw_response['candidates'][0]['content']['parts'][0]['text']
   end
+
+  # Lets see if it works. It works on my Mac where ollama is installed :)
+  # def ollama_thread_response
+  #   response = OllamaLLM.chat(messages: self.messages_for_gemini)
+  #   response.raw_response['candidates'][0]['content']['parts'][0]['text']
+  # end
 
   # def answer_with_gemini!
   #   gemini_model = GeminiLLM.defaults[:chat_completion_model_name]

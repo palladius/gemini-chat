@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
     @single_room = Room.find(params[:id]) rescue nil
     #redirect_to '/rooms#index' unless @single_room
     @rooms = Room.public_rooms.order(:name)
-    @users = User.all_except(@current_user)
+    @users = User.all_except(@current_user).order(:username)
     @messages = @single_room.messages
     # lets initialize new stuff
     @room = Room.new

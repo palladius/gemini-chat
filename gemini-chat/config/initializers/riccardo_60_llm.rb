@@ -18,6 +18,7 @@ PalmLLM = Langchain::LLM::GooglePalm.new(api_key: ENV['PALM_API_KEY_GEMINI'],
     temperature: 0.2,
   }) rescue nil
 OllamaLLM = Langchain::LLM::Ollama.new rescue nil
+OllamaModel = OllamaLLM.chat_parameters.schema[:model][:default] rescue "OllamaModelError: #{$!}"
 
 # https://ai.google.dev/palm_docs/palm?hl=en
 PalmLLMImpromptu = PalmLLM.nil? ?

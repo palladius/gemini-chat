@@ -18,10 +18,14 @@ def create_stuff()
   # why uppercase?!?
   User.create(username: 'drake')
   User.create(username: 'elon')
+  User.create username: 'luca', description: 'my friend Luca C who also loves ruby'
+  User.create username: 'daniel', description: 'my friend Daniel M who also loves ruby'
   larry = User.create(username: 'larry')
   User.create(username: 'sergey')
   ricc = User.create(username: 'ricc')
   gemini = User.create(username: 'gemini-1.5-flash', is_bot: true)
+  gemini = User.create(username: 'gemini-1.5-pro-latest', is_bot: true)
+
 
   # Messages
 
