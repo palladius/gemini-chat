@@ -1,0 +1,44 @@
+
+########################################################
+# This is a sample from gaic v1.3
+# Code: https://github.com/palladius/sakura/blob/master/bin/auto_import_config.py
+########################################################
+# Once done you can do: gcloud config configurations activate YOUR_VAVORITE_CONFIG
+local_config:
+  auto: true
+configurations:
+  gemini-chat:
+    gcloud:
+      project: YOUR_PROJECT
+      compute/region: europe-west1
+      compute/zone: europe-west1-b
+      redis/region: europe-west1
+      account: YOUR EMAIL
+    env:
+      GEMINI_KEY: 'your-key'
+      PALM_API_KEY_GEMINI: 'another-key'
+      REDIS_REGION: "${GCP_REGION}"
+      REDIS_IP: YOUR INTERNAL IP # eg 10.103.87.131 # :6379
+      RICCARDO_REDIS_URL: "redis://${REDIS_IP}:6379/1" # if redis_url is in local, it screwes up local, so i want to rename it manually.
+      REPO_VISBILITY: PUBLIC
+      # itsd a contract between my various scripts. If enabled, we count on it to be working. if not, program needs to be ablet ow orjk WITHOUT.
+      # Particularly important for Rails app.
+      DATABASE_URL_PROD: 'postgresql://user:pwd@1.2.3.4/dbname?pool=5'
+      APP_NAME: gemini-chat
+      RAILS_MASTER_KEY: your-key
+      SKAFFOLD_DEFAULT_REPO: europe-west1-docker.pkg.dev/${PROJECT_ID}/${APP_NAME}
+      SKAFFOLD_DEFAULT_REPO_AND_APP: ${SKAFFOLD_DEFAULT_REPO}/${APP_NAME}
+      RUBY_YJIT_ENABLE: 'true'
+      MESSAGGIO_OCCASIONALE: >-
+        Scopiazzed from Abi in https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
+        Change this msg as you please
+      ####################################################################################################
+      ####################################################################################################
+
+      DESCRIPTION: >-
+        Lets see if gaic works with these as well..
+
+        * 🏃 CRun: https://console.cloud.google.com/run?project="${PROJECT_ID}"
+        * 🏗️ Cloud Build repo: https://console.cloud.google.com/cloud-build/builds
+        * 🚀 Cloud Deploy: https://console.cloud.google.com/deploy/delivery-pipelines/${GCP_REGION}/gemini-chat-rails-app?project=${PROJECT_ID}
+        * 🎨 ArtRepo: https://console.cloud.google.com/artifacts/docker/${PROJECT_ID}/${GCP_REGION}/gemini-chat/gemini-chat?project=${PROJECT_ID}
