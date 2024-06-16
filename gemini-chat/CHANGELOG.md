@@ -2,6 +2,7 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-16 0.6.0  [dev] Added devise. it ALL works except now it breaks turbo. -> keeping in another branch.
 2024-06-04 0.5.14 [dev] Added super duper functionality. Now Gemini responds to '@gemini' questions :)
 2024-06-04 0.5.13 [ops] Created a Gemini::ReplyAll job to do it forever.
 2024-06-02 0.5.12 [ops] Try to move PG credentials from locally encrypted to ENV+SecretMgr.. damn.

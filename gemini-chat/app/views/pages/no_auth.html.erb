@@ -1,0 +1,45 @@
+<h1>🐣 You are NOT authorized!</h1>
+
+<p>Find me in:<br/>
+ <tt>code app/views/pages/no_auth.html.erb</tt>
+ </p>
+ If you are here, chances ar eyou clicked on the rooms link but you're not authenticated. Pls click on login link after Riccardo fixed it.<br/>
+
+ This page was created since after installing devise the roomsController gave me a login loop.<br/>
+  So I decided to have a redirect to an empty silly page like this until I fix the bug. :)<br/>
+
+<br/>
+Info:<br/>
+
+* current_user: '<b><%= current_user %></b>' (Class:<%= current_user.class %>)<br/>
+* logged_in?: <b><%= logged_in? rescue $! %></b> <br/>
+* user_signed_in?: <b><%= user_signed_in? %></b> <br/>
+
+<h2>Bugs</h2>
+* b/0001. User creation doesnt pick up the username<br/>
+
+
+<!--
+TODO refactor in a partial<br/>
+-->
+<h2>Login and logout</h2>
+
+<%= link_to '/signin', '/signin' %>
+<%= link_to '/users/sign_in', '/users/sign_in' %>
+
+
+<%= button_to(
+  "Log Out",
+  destroy_user_session_path,
+  method: :delete
+) %>
+
+<h2>User debug info </h2>
+
+Remove me when it works well :)
+
+<pre>
+<% User.cernita.each do |user_info| %>
+  <%= user_info %>
+<% end %>
+</pre>

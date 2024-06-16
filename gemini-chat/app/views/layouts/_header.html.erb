@@ -13,21 +13,30 @@
           <a class="nav-link" href="/rooms">🚪 Rooms</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">💡 About</a>
+          <a class="nav-link" href="/pages/about">💡 About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/no_auth">🐣</a>
         </li>
         <% if current_user %>
+          <!-- we are LOGGED IN! -->
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Sign in</a>
+            <a class="nav-link disabled text-muted" aria-disabled="true">Sign in</a>
           </li>
           <li class="nav-item">
-            <%= link_to 'SignOut', signout_path,  :method => :delete, class: "nav-link" %>
+            <%= button_to( # https://betterprogramming.pub/devise-auth-setup-in-rails-7-44240aaed4be
+              "🚀LogOut",
+              destroy_user_session_path,
+              method: :delete,
+              class: "btn btn-danger nav-link",
+            ) %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Sign In', signin_path %>
+            <%= link_to 'Sign In', '/users/sign_in', class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">SignOut</a>
+            <a class="nav-link disabled text-muted" aria-disabled="true">🚀LogOut</a>
           </li>
         <% end %>
 
