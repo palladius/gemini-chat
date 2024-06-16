@@ -13,13 +13,20 @@ class GeminiRoomReplyForeverJob < ApplicationJob
     # Do something later
     #sleep_time ||= args[:sleep_time]
     job_version = '1.0'
-    sleep_distance = 3
+    sleep_distance = Rails.env == 'production' ? 2 : 5
     pid = $$ # Process.pid
+    verbose = ENV.fetch 'GEMINI_REPLY_JOB_VERBOSE', false # TODO ENV
+    puts '⏳' * 80
+    puts "⏳♊️ [PID=#{pid}] Gemini ReplyAll 4ever Job v#{job_version} - every #{sleep_distance} seconds: #{Time.now}"
+    puts "⏳♊️ [PID=#{pid}] - verbose=#{verbose}"
+    puts "⏳♊️ [PID=#{pid}] Bug: it seems like this is caching the room info so it will only update the FIRST time."
+    puts '⏳' * 80
+
     while true
-      puts '⏳' * 80
-      puts "⏳♊️ [PID=#{pid}] Gemini ReplyAll 4ever Job v#{job_version} - every #{sleep_distance} seconds: #{Time.now}"
-      puts '⏳' * 80
-      Room.gemini_reply_all
+      #puts '⏳' * 80
+      puts "⏳⏳⏳ ♊️ [PID=#{pid}] Gemini ReplyAll 4ever Job v#{job_version} - every #{sleep_distance} seconds: #{Time.now}"
+      ret = Room.gemini_reply_all(verbose:)
+      puts(ret) if verbose
       sleep(sleep_distance)
     end
   end

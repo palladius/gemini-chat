@@ -63,20 +63,21 @@ class Room < ApplicationRecord
   #   new_msg
   # end
 
-  def answer_with_gemini
+  def answer_with_gemini verbose: false
     #puts '♊️♊️♊️ answer_with_gemini() BEGIN: This might take a while..'
     # First lets DEFUSE the even remote possibility of deadlock. Gemini should only
     # 1. respond to USER type of questions
     # 2. answer with ROBOT or whatevs type of questions
     # messages_for_gemini shou
     unless should_respond_with_gemini?
-      puts "♊️♊️♊️ Room '#{self.to_s}': No point in answering. Returning"
+      puts "♊️♊️♊️ Room '#{self.to_s}': No point in answering. Returning" if verbose
       return false
     end
     response = gemini_thread_response rescue nil
     return nil unless response.to_s.length > 3
+
     # we have a response, lets save a message!
-    puts '♊️♊️♊️ answer_with_gemini() MIDDLE: we do have a response!'
+    puts '♊️♊️♊️ Room #{self.to_s}.answer_with_gemini(): 🎉🎉🎉  We do have a response! 🎉🎉🎉'
     #answer_with_gemini!
     gemini_model = GeminiLLM.defaults[:chat_completion_model_name]
     gemini_user = User.find_or_create_by(username: gemini_model, is_bot: true)
@@ -108,11 +109,11 @@ class Room < ApplicationRecord
 
   def to_s = haunted_by_gemini? ? "👻 #{name}" : "🚪 #{name}"
 
-  def self.gemini_reply_all
+  def self.gemini_reply_all(verbose: true)
     self.all.map do |room|
-      puts("Room #{room}: gemini_reply_all..")
-      room.answer_with_gemini_if_public
-    end
+      puts("Room #{room}: gemini_reply_all..") if verbose
+      [room.to_s, room.answer_with_gemini_if_public]
+    end.select{|room,answer| ! answer.nil?}
   end
 
 end

@@ -40,3 +40,7 @@ gemini-respond-in-prod:
 
 gemini-respond-in-prod-forever:
 	echo GeminiRoomReplyForeverJob.perform_now | RAILS_ENV=production rails c
+
+# Suggested by Gemini
+gemini-respond-in-dev-forever:
+	rails runner -e development "GeminiRoomReplyForeverJob.perform_now" &>/dev/null &

@@ -2,6 +2,8 @@
 taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
+2024-06-16 0.5.15 [dev] Added Pages/about and GEMINI_REPLY_JOB_VERBOSE which should launch this in prod automatically
+  # added branch for 90% done work: https://github.com/palladius/gemini-chat/tree/devise-broken
 2024-06-04 0.5.14 [dev] Added super duper functionality. Now Gemini responds to '@gemini' questions :)
 2024-06-04 0.5.13 [ops] Created a Gemini::ReplyAll job to do it forever.
 2024-06-02 0.5.12 [ops] Try to move PG credentials from locally encrypted to ENV+SecretMgr.. damn.

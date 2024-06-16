@@ -13,7 +13,10 @@
           <a class="nav-link" href="/rooms">🚪 Rooms</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">💡 About</a>
+          <a class="nav-link" href="/pages/no_auth">🐣</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/about">💡 About</a>
         </li>
         <% if current_user %>
           <li class="nav-item">
@@ -24,7 +27,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Sign In', signin_path %>
+            <%= link_to 'Sign In', signin_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">SignOut</a>

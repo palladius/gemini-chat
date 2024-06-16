@@ -7,4 +7,9 @@ if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
   ./bin/rails db:prepare
 fi
 
+if [ "true" = "$GEMINI_REPLY_JOB_VERBOSE" ] ; then
+# 	rails runner -e development "GeminiRoomReplyForeverJob.perform_now" &>/dev/null &
+ 	rails runner "GeminiRoomReplyForeverJob.perform_now" &
+fi
+
 exec "${@}"
