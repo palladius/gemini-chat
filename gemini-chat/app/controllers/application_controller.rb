@@ -1,25 +1,30 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  #protect_from_forgery with: :exception
 
-  def current_user
-    if session[:user_id]
-      @current_user  = User.find(session[:user_id])
-    end
-  end
+  #helper_method :current_user
+  #helper_method :logged_in?
 
-  def log_in(user)
-    session[:user_id] = user.id
-    @current_user = user
-    redirect_to root_path
-  end
+  # def current_user
+  #   if session[:user_id]
+  #     @current_user  = User.find(session[:user_id])
+  #   end
+  # end
+
+  # def log_in(user)
+  #   session[:user_id] = user.id
+  #   @current_user = user
+  #   redirect_to root_path
+  # end
 
   def logged_in?
-    !current_user.nil?
+    # before devise
+    #    !current_user.nil?
+    user_signed_in?
   end
 
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
+  # def log_out
+  #   session.delete(:user_id)
+  #   @current_user = nil
+  # end
 
 end

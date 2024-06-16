@@ -21,6 +21,11 @@ This app works this way:
 
 As simple as that - pretty sweet!
 
+## BUGS
+
+* Devise not working well with Turbo and Rails 7: https://gorails.com/episodes/devise-hotwire-turbo . For workarounds,
+try the devise-hotwire gem, or read https://eagerworks.com/blog/devise-with-hotwire-utilizing-a-modal and https://gorails.com/episodes/devise-hotwire-turbo I'm now fed up to have to learn `warden`.
+
 ## PROD
 
 Note Ricc: you need to install a Redis too, probably, for Turbo to work.

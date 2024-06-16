@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     @room = Room.create(name: params["room"]["name"])
@@ -6,7 +7,10 @@ class RoomsController < ApplicationController
 
   def index
     @current_user = current_user # rescue nil
-    redirect_to '/signin' unless @current_user
+    unless @current_user
+      redirect_to '/pages/no_auth' # unless @current_user
+      #return anonym_index
+    end
     @rooms = Room.public_rooms
     @users = User.all_except(@current_user)
     @room = Room.new
