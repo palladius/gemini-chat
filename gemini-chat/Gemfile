@@ -16,6 +16,9 @@ gem 'pg' # psotrges prod
 #gem 'activeadmin' # to admin new users and stuff.. better not, first i need to install devise and have PROPER users..
 # on Mac:
 # gem install unicode -- --with-cflags="-Wno-incompatible-function-pointer-types"
+gem 'vcr' # to test stuff
+gem 'faraday'
+gem 'webmock'
 # Riccaerdo end
 ###################################
 

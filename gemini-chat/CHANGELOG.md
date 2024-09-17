@@ -1,5 +1,5 @@
 
-taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
+Taking this tutorial: https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/
 
 ```
 2024-06-16 0.5.15 [dev] Added Pages/about and GEMINI_REPLY_JOB_VERBOSE which should launch this in prod automatically
